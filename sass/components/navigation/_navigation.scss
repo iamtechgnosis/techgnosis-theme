@@ -51,6 +51,7 @@
 
 	li {
 		position: relative;
+		padding: 8px 16px;
 
 		&:hover > a,
 		&.focus > a {
@@ -66,6 +67,18 @@
 	.current-menu-item > a,
 	.current_page_ancestor > a,
 	.current-menu-ancestor > a {
+	}
+}
+
+
+.site-header {
+	grid-area: header;
+	position: relative;
+	overflow: hidden;
+
+	> img {
+		position: absolute;
+		width: 100%;
 	}
 }
 
