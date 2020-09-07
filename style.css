@@ -852,15 +852,19 @@ p:empty {
 }
 
 .offset-top-30 {
-	transform: translate(0, -30px);
+	margin-top: -30px;
 }
 
 .offset-top-60 {
-	transform: translate(0, -60px);
+	margin-top: -60px;
 }
 
 .offset-top-90 {
-	transform: translate(0, -90px);
+	margin-top: -90px;
+}
+
+.max-width-5 .container {
+	max-width: 532px;
 }
 
 /* Media
@@ -952,6 +956,22 @@ p:empty {
 
 /* Blocks
 --------------------------------------------- */
+.mt-1 {
+	margin-top: 8px;
+}
+
+.mt-2 {
+	margin-top: 16px;
+}
+
+.mt-3 {
+	margin-top: 24px;
+}
+
+.mt-4 {
+	margin-top: 32px;
+}
+
 .wp-block-media-text,
 .wp-block-group {
 	background-color: #ffffff;
@@ -988,6 +1008,61 @@ p:empty {
 
 .wp-block-group.shadow-border {
 	padding-top: 24px;
+}
+
+.wp-block-create-block-gnosis-container-block {
+	margin-bottom: 24px;
+}
+
+.make-transparent .wp-cover-block {
+	background: transparent;
+}
+
+.position-absolute {
+	position: absolute;
+	top: 0;
+}
+
+.hide-nav .owl-dots,
+.hide-nav .owl-nav {
+	display: none;
+}
+
+.wp-cover-block .wp-block-create-block-gnosis-container-block {
+	margin-bottom: 0;
+}
+
+.wp-cover-block .owl-carousel .wp-cover-block {
+	min-height: auto !important;
+}
+
+.wp-block-gnosis-block-carousel {
+	overflow: hidden;
+}
+
+.owl-item .owl-loading {
+	height: 0;
+}
+
+@media only screen and (max-width: 768px) {
+	/* For mobile phones: */
+	.wp-block-columns.align--btns__bottom {
+		margin-bottom: 16px;
+	}
+	.wp-block-columns.align--btns__bottom .wp-block-column > div:last-child {
+		position: relative;
+		bottom: 0;
+	}
+	.wp-block-cover .wp-block-cover__inner-container {
+		width: 100%;
+		max-width: none;
+	}
+	.site-footer .columns {
+		align-items: center;
+	}
+	.wp-block-cover {
+		min-height: 65vh !important;
+	}
 }
 
 /*--------------------------------------------------------------

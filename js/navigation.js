@@ -108,4 +108,42 @@
 			});
 		});
 	});
+
+	function animateValue(el, start, end, duration, symbol) {
+		var range = end - start;
+		var current = start;
+		var increment = end > start? 1 : -1;
+		var stepTime = Math.abs(Math.floor(duration / range));
+		var obj = el;
+		var timer = setInterval(function() {
+			current += increment;
+			obj.innerHTML = current + '' + symbol;
+			if (current == end) {
+				clearInterval(timer);
+			}
+		}, stepTime);
+	}
+
+	let hasRan = {};
+
+	var observer = new IntersectionObserver(function(entries) {
+		for(let i = 0; i < entries.length; i++ ){
+			if(entries[i].isIntersecting === true && !hasRan[i]) {
+				const str = entries[i].target.textContent;
+				let x = str.replace(',','');
+				const symbol = str[str.length - 1];
+				x = x.replace(symbol,'');
+				animateValue( entries[i].target, 0, x, 500, symbol);
+				hasRan[i] = true;
+			}
+		}
+		
+	}, { threshold: [1] });
+	
+		
+	document.querySelectorAll('.counter-animate').forEach( counter => {
+		observer.observe( counter );
+	});
+
+
 }() );
