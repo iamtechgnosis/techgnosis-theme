@@ -15,7 +15,7 @@
 
 .post,
 .page {
-	margin: 0 0 1.5em;
+	margin: 0;
 }
 
 .updated:not(.published) {
@@ -37,4 +37,12 @@
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+.container {
+	z-index: 1;
+}
+
+p:empty {
+	display: none;
 }
