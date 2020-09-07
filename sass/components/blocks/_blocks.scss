@@ -3,6 +3,11 @@
 .mt-3 { margin-top: 24px; }
 .mt-4 { margin-top: 32px; }
 
+.mb-1 { margin-bottom: 8px; }
+.mb-2 { margin-bottom: 16px; }
+.mb-3 { margin-bottom: 24px; }
+.mb-4 { margin-bottom: 32px; }
+
 .wp-block-media-text,
 .wp-block-group {
     background-color: #ffffff;
@@ -77,6 +82,11 @@
 
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
+
+    .wp-cover-block .owl-carousel .wp-cover-block {
+        min-height: 0 !important;
+    }
+
     .wp-block-columns.align--btns__bottom {
         margin-bottom: 16px;
     }
@@ -97,5 +107,17 @@
 
     .wp-block-cover {
         min-height: 65vh !important;
+    }
+
+    .offset-top-30 {
+        margin-top: -5;
+    }
+    
+    .offset-top-60 {
+        margin-top: -10px;
+    }
+    
+    .offset-top-90 {
+        margin-top: -15px;
     }
   }
