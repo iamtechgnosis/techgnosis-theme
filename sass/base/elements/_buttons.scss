@@ -19,3 +19,23 @@ input[type="submit"] {
 		border-color: $color__border-button-focus;
 	}
 }
+
+.black.button,
+.black.button a {
+	background-color: $color__black;
+	border-color: $color__black;
+	color: $color__lite-gray !important;
+	text-decoration: none !important;	
+}
+
+.blue.button {
+	background-color: $color__blue;
+}
+
+.lite-gray.button {
+	background-color: $color__lite-gray;
+}
+
+.gray.button {
+	background-color: $color__gray;
+}

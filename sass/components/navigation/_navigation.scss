@@ -70,11 +70,21 @@
 	}
 }
 
+.home.page-template-page-wide {
+	.site-branding {
+		@extend .sr-only;
+	}
+}
 
 .site-header {
 	grid-area: header;
 	position: relative;
 	overflow: hidden;
+
+	.menu-item,
+	.menu-item a {
+		color: #222;
+	}
 
 	> img {
 		position: absolute;

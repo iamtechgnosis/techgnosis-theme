@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.2' );
+	define( '_S_VERSION', '1.0.22' );
 }
 
 if ( ! function_exists( 'techgnosis_theme_setup' ) ) :
@@ -143,9 +143,6 @@ function techgnosis_theme_scripts() {
 	wp_enqueue_style( 'techgnosis-theme-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'techgnosis-theme-style', 'rtl', 'replace' );
 
-	wp_enqueue_style( 'google_fonts', '//fonts.googleapis.com/css?family=Raleway:400,300,600', false );
-	wp_enqueue_style( 'skeleton', get_template_directory_uri() . '/lib/Skeleton-2.0.4/css/skeleton.css', array(), '2.0.4' );
-
 	wp_enqueue_script( 'techgnosis-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -180,4 +177,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-

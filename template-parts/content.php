@@ -18,6 +18,9 @@
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 
+		// TEst and done!
+		$show_full_content = get_post_meta( get_the_ID(), 'show_full_content', true );
+
 		if ( 'post' === get_post_type() ) :
 			?>
 			<div class="entry-meta">
@@ -33,7 +36,7 @@
 
 	<div class="entry-content">
 		<?php
-		the_content(
+		the_excerpt(
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */

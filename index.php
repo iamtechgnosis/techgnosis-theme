@@ -17,7 +17,7 @@ get_header();
 
 <div class="container">
 	<div class="row">
-		<main id="primary" class="site-main one-half column" style="margin-top: 25%">
+		<main id="primary" class="site-main <?php echo is_active_sidebar( 'sidebar-1' ) ? 'eight':'ten'?> columns" style="margin-top: 16px">
 	
 			<?php
 			if ( have_posts() ) :
@@ -53,9 +53,9 @@ get_header();
 			?>
 	
 		</main><!-- #main -->
+		<?php get_sidebar(); ?>
 	</div>
 </div>
 
 <?php
-get_sidebar();
 get_footer();

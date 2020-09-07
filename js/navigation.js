@@ -96,4 +96,16 @@
 			menuItem.classList.toggle( 'focus' );
 		}
 	}
+
+	// smoothscroll
+	// Scroll to a certain element
+	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+		anchor.addEventListener('click', function (e) {
+			e.preventDefault();
+	
+			document.querySelector(this.getAttribute('href')).scrollIntoView({
+				behavior: 'smooth'
+			});
+		});
+	});
 }() );
