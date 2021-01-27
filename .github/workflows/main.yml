@@ -46,7 +46,7 @@ jobs:
       with:
         switches: -chav --exclude=".git" --exclude=".vscode" --include="dist/***"
         path: dist/
-        remote_path: /test12345
+        remote_path: /home4/elysium001/webtechgnosis.com/wp-content/themes/test123
         remote_host: ${{ secrets.REMOTE_HOST }}
         remote_user: ${{ secrets.REMOTE_USER }}
         remote_key: ${{ secrets.HOST_KEY }}
