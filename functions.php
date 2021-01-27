@@ -140,16 +140,85 @@ add_action( 'widgets_init', 'techgnosis_theme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function techgnosis_theme_scripts() {
-	wp_enqueue_style( 'techgnosis-theme-style', get_stylesheet_uri(), array(), _S_VERSION );
+	// wp_enqueue_style( 'techgnosis-theme-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'techgnosis-theme-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'techgnosis-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	// wp_enqueue_script( 'techgnosis-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'techgnosis_theme_scripts' );
+
+function wireup_js() {
+    $dir = __DIR__;
+ 
+    $script_asset_path = "$dir/build/index.asset.php";
+    if ( ! file_exists( $script_asset_path ) ) {
+        throw new Error(
+            'You need to run `npm start` or `npm run build` in the techgnosis theme first.'
+        );
+    }
+    $index_js     = '/build/index.js';
+	$script_asset = require( $script_asset_path );
+	
+    wp_enqueue_script(
+        'wp-scripts',
+        get_template_directory_uri() . $index_js,
+        $script_asset['dependencies'],
+		$script_asset['version'],
+		true
+	);
+
+	wp_enqueue_style(
+        'wp-scripts-styles',
+        get_template_directory_uri() . '/build/style-index.css',
+        array(),
+		$script_asset['version']
+	);
+	
+	$header_script_asset_path = "$dir/build/headerScripts.asset.php";
+    if ( ! file_exists( $header_script_asset_path ) ) {
+        throw new Error(
+            'You need to run `npm start` or `npm run build` in the techgnosis theme first.'
+        );
+    }
+	$header_js     = '/build/headerScripts.js';
+    $header_script_asset = require( $header_script_asset_path );
+    wp_enqueue_script(
+        'wp-header-scripts',
+        get_template_directory_uri() . $header_js,
+        $header_script_asset['dependencies'],
+		$header_script_asset['version']
+	);
+	
+    // wp_set_script_translations( 'create-block-gutenpride-block-editor', 'gutenpride' );
+ 
+    // $editor_css = 'editor.css';
+    // wp_register_style(
+    //     'create-block-gutenpride-block-editor',
+    //     plugins_url( $editor_css, __FILE__ ),
+    //     array(),
+    //     filemtime( "$dir/$editor_css" )
+    // );
+ 
+    // $style_css = 'style.css';
+    // wp_register_style(
+    //     'create-block-gutenpride-block',
+    //     plugins_url( $style_css, __FILE__ ),
+    //     array(),
+    //     filemtime( "$dir/$style_css" )
+    // );
+ 
+    // register_block_type( 'create-block/gutenpride', array(
+    //     'apiVersion' => 2,
+    //     'editor_script' => 'create-block-gutenpride-block-editor',
+    //     'editor_style'  => 'create-block-gutenpride-block-editor',
+    //     'style'         => 'create-block-gutenpride-block',
+    // ) );
+}
+add_action( 'wp_enqueue_scripts', 'wireup_js' );
 
 /**
  * Implement the Custom Header feature.

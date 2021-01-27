@@ -514,6 +514,10 @@ figure {
 	margin: 1em 0;
 }
 
+.owl-carousel {
+	height: auto;
+}
+
 table {
 	margin: 0 0 1.5em;
 	width: 100%;
@@ -727,6 +731,38 @@ textarea {
 	display: block;
 }
 
+.menu-toggle {
+	display: flex;
+	align-items: center;
+	padding: 0 16px;
+	margin-left: auto;
+}
+
+.menu-toggle .dashicons {
+	margin-right: 8px;
+}
+
+.toggled .custom-logo-link {
+	display: none;
+}
+
+.toggled .dashicons-menu-alt3::before {
+	content: "\f158";
+}
+
+.site-footer .columns.contact a {
+	text-decoration: none !important;
+	color: #ffffff !important;
+	display: flex;
+	align-content: center;
+	align-items: center;
+}
+
+.site-footer .columns.contact a .dashicons {
+	margin-bottom: 0;
+	margin-right: 8px;
+}
+
 @media screen and (min-width: 37.5em) {
 	.menu-toggle {
 		display: none;
@@ -810,6 +846,12 @@ p:empty {
 	display: none;
 }
 
+@media only screen and (max-width: 768px) {
+	.entry-content {
+		margin-top: 0;
+	}
+}
+
 /* Comments
 --------------------------------------------- */
 .comment-content a {
@@ -865,6 +907,18 @@ p:empty {
 
 .max-width-5 .container {
 	max-width: 532px;
+}
+
+.widget-title {
+	font-size: 1.5em;
+}
+
+.widget ul {
+	margin-left: 16px;
+}
+
+.widget ul a {
+	text-decoration: none;
 }
 
 /* Media
@@ -1057,7 +1111,8 @@ p:empty {
 }
 
 .owl-item .owl-loading {
-	height: 0;
+	max-height: 0;
+	max-height: auto;
 }
 
 @media only screen and (max-width: 768px) {
