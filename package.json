@@ -53,6 +53,7 @@
     "@fancyapps/fancybox": "^3.5.7",
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@svgdotjs/svg.js": "^3.0.16",
+    "bootstrap": "^5.0.0-beta1",
     "jquery": "^3.5.1"
   }
 }

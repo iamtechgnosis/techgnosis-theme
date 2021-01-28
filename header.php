@@ -16,11 +16,12 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,900;1,400;1,600&display=swap" rel="stylesheet"> 
 	<?php wp_head(); ?>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -28,41 +29,32 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'techgnosis-theme' ); ?></a>
 
-	<header id="masthead" class="site-header" >
-		<?php the_header_image_tag(); ?>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container">
-			<div class="site-branding row">
-				<div class="ten columns">
-				<?php
-				the_custom_logo();
-				if ( is_front_page() && is_home() ) :
-					?>
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					<?php
-				else :
-					?>
-					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-					<?php
-				endif;
-				$techgnosis_theme_description = get_bloginfo( 'description', 'display' );
-				if ( $techgnosis_theme_description || is_customize_preview() ) :
-					?>
-					<p class="site-description"><?php echo $techgnosis_theme_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-				<?php endif; ?>
-				</div>
-			</div><!-- .site-branding -->
-	
-			<nav id="site-navigation" class="main-navigation row">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'techgnosis-theme' ); ?></button>
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'menu-1',
-						'menu_id'        => 'primary-menu',
-						'menu_class'	 => 'ten columns'
-					)
-				);
+			<a class="navbar-brand" href="#">
+				<?php 
+				if ( has_custom_logo() ) {
+					the_custom_logo();
+				}else{
+					echo get_bloginfo( 'name' );
+				}
 				?>
-			</nav><!-- #site-navigation -->
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<?php 
+			wp_nav_menu( array(
+				'theme_location'  => 'menu-1',
+				'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
+				'container'       => 'div',
+				'container_class' => 'collapse navbar-collapse',
+				'menu_id'    => 'navbarNavDropdown',
+				'container_id'    => 'navbarNavDropdown',
+				'menu_class'      => 'navbar-nav ml-auto',
+				'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+				'walker'          => new WP_Bootstrap_Navwalker(),
+			) );
+			?>
 		</div>
-	</header><!-- #masthead -->
+	</nav>

@@ -9,7 +9,7 @@
 
 get_header();
 ?>
-<main id="primary" class="site-main container-fluid">
+<main id="primary" class="site-main container-fluid px-0">
 		
 	<?php
 	while ( have_posts() ) :
@@ -26,7 +26,6 @@ get_header();
 	?>
 
 </main><!-- #main -->
-
 
 <?php
 get_footer();

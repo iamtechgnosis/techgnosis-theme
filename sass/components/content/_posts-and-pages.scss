@@ -82,20 +82,10 @@
 html {
 	max-height: 100vh;
 	overflow-y: scroll;
-	scroll-snap-type: mandatory;
-	scroll-snap-points-y: repeat(3rem);
-	scroll-snap-type: y mandatory;
+	// scroll-snap-type: y mandatory;
 
-	.entry-content > {
-		.quantar__catalog,
-		div[class^="wp-block-"] {
-			scroll-snap-align: start;
-			position: relative;
-		}
-	}
-
-	.site-header {
-		scroll-snap-align: end;
+	.entry-content > div {
+		scroll-snap-align: center;
 		position: relative;
 	}
 
