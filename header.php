@@ -20,8 +20,6 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,900;1,400;1,600&display=swap" rel="stylesheet"> 
 	<?php wp_head(); ?>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -40,8 +38,8 @@
 				}
 				?>
 			</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
 			</button>
 			<?php 
 			wp_nav_menu( array(
@@ -49,9 +47,8 @@
 				'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
 				'container'       => 'div',
 				'container_class' => 'collapse navbar-collapse',
-				'menu_id'    => 'navbarNavDropdown',
-				'container_id'    => 'navbarNavDropdown',
-				'menu_class'      => 'navbar-nav ml-auto',
+				'container_id'    => 'navbarSupportedContent',
+				'menu_class'      => 'navbar-nav ms-auto mb-2 mb-lg-0',
 				'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
 				'walker'          => new WP_Bootstrap_Navwalker(),
 			) );
